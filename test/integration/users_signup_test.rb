@@ -26,9 +26,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         password_confirmation: "foobar"
     }}
 
-    assert_equal User.count, 1
+    assert_equal User.count, 2
     follow_redirect! #TODO; hella magical. look into
     assert_template 'users/show'
+    assert is_logged_in?
 
   end
 end
