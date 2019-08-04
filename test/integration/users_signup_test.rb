@@ -18,7 +18,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get signup_path
 
     # TODO: verify if these all run asynchronously like nodejs async
-
+    initial_user_count = User.count
     post users_path, params: { user: {
         name: "Henry Lao",
         email: "user@valid.com",
@@ -26,7 +26,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         password_confirmation: "foobar"
     }}
 
-    assert_equal User.count, 2
+    assert_equal User.count, initial_user_count+1
     follow_redirect! #TODO; hella magical. look into
     assert_template 'users/show'
     assert is_logged_in?
