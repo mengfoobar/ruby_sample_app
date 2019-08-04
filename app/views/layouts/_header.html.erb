@@ -14,7 +14,7 @@
             </a>
             <ul class="dropdown-menu" data-toggle="dropdown">
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "Log out", logout_path, method: :delete %></li>
             </ul>
@@ -26,5 +26,5 @@
 
       </ul>
     </nav>
-  </div>
+</div>
 </header>
