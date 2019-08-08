@@ -4,10 +4,12 @@ michael:
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
 
+
 henry:
   name: Henry Liu
   email: henry@liu.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 <% 10.times do |n| %>
 user_<%= n %>:
