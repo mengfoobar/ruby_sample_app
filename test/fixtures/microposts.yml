@@ -2,15 +2,26 @@
 orange:
   content: "Orange"
   created_at: <%= 10.minutes.ago %>
+  user: henry
 
 tau_manifesto:
   content: "Check out the @tauday site"
   created_at: <%= 3.years.ago %>
+  user: henry
 
 cats:
   content: "Do you like kitties"
   created_at: <%= 3.hours.ago %>
+  user: henry
 
 most_recent:
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
+  user: henry
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: henry
+<% end %>
