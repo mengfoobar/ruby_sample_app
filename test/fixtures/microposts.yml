@@ -19,9 +19,36 @@ most_recent:
   created_at: <%= Time.zone.now %>
   user: henry
 
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: knight_kun
+
+zone:
+  content: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: knight_kun
+
+tone:
+  content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 10.minutes.ago %>
+  user: bishop_san
+
+van:
+  content: "Dude, this van's, like, rolling probable cause."
+  created_at: <%= 4.hours.ago %>
+  user: bishop_san
+
 <% 30.times do |n| %>
 micropost_<%= n %>:
   content: <%= Faker::Lorem.sentence(word_count: 5) %>
   created_at: <%= 42.days.ago %>
   user: henry
+<% end %>
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: knight_kun
 <% end %>
