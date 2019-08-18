@@ -14,6 +14,8 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'bcrypt',       '3.1.12'
 gem 'faker', '2.1.0'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 gem 'will_paginate','3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 
@@ -42,6 +44,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
