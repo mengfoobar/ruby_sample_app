@@ -39,7 +39,7 @@ van:
   created_at: <%= 4.hours.ago %>
   user: bishop_san
 
-<% 30.times do |n| %>
+<% 50.times do |n| %>
 micropost_<%= n %>:
   content: <%= Faker::Lorem.sentence(word_count: 5) %>
   created_at: <%= 42.days.ago %>
