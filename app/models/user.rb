@@ -13,6 +13,11 @@ class User < ApplicationRecord
                                   foreign_key: "follower_id",
                                   dependent: :destroy  #relationship severed when user is removed
   has_many :following, through: :active_relationships, source: :followed
+  has_many :passive_relationships, class_name: "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+  #Q: why do we need active, passitve relationships. Can't we just declare it through followers, following?
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -95,6 +95,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not henry.following?(knight_kun)
     henry.follow(knight_kun)
     assert henry.following?(knight_kun)
+    assert knight_kun.followers.include?(henry)
     henry.unfollow(knight_kun)
     assert_not henry.following?(:knight_kun)
   end
