@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy  #relationship severed when user is removed
+  has_many :following, through: :active_relationships, source: :followed
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -21,6 +22,18 @@ class User < ApplicationRecord
 
   def feed
     Micropost.where("user_id=?", id)
+  end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
   end
 
 end
